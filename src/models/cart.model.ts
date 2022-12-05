@@ -5,7 +5,7 @@ export class Cart extends Entity {
   @property({
     type: 'string',
     id: true,
-    generated: true,
+    mongodb: {dataType: 'ObjectId'},
   })
   id?: string;
 
