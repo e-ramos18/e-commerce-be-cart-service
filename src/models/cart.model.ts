@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, hasMany, model, property} from '@loopback/repository';
+import {CartItem} from './cart-item.model';
 
 @model({settings: {strict: false}})
 export class Cart extends Entity {
@@ -22,6 +23,8 @@ export class Cart extends Entity {
   })
   itemIds?: string[];
 
+  @hasMany(() => CartItem, {keyTo: 'cartId'})
+  cartItems: CartItem[];
   // Define well-known properties here
 
   // Indexer property to allow additional data
